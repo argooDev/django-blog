@@ -3,6 +3,12 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 
+class PublishedManager(models.Manager):
+    def get_queryset(self):
+        return super().get_gueryset()\
+                        .filter(status=Post.Status.PUBLISHED)
+
+
 class Post(models.Model):
     # This class need for define to status of posts
     class Status(models.TextChoices):
