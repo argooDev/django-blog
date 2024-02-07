@@ -7,7 +7,9 @@ register_converter(convecters.FourYearConvector, 'year4')
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('category/<slug:slug_cat>/', views.category, name='category'),
     path('about/', views.about, name='about'),
-    path('archive/<year4:year>/', views.archive, name='arch')
+    path('addpage/', views.addpage, name='add_page'),
+    path('contact/', views.contact, name='contact'),
+    path('login/', views.login, name='login'),
+    path('post/<int:post_id>/', views.show_post, name='post'),
 ]
